@@ -1,0 +1,33 @@
+<%= form_for(@video_lesson) do |f| %>
+  <% if @video_lesson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video_lesson.errors.count, "error") %> prohibited this video_lesson from being saved:</h2>
+
+      <ul>
+      <% @video_lesson.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :video %><br>
+    <%= f.file_field :video %>
+  </div>
+  <div class="field">
+    <%= f.label :youtube %><br>
+    <%= f.text_field :youtube %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
