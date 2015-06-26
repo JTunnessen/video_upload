@@ -30,9 +30,7 @@
            
           <li class="name">
             <h1>
-              <a href="#">
-                Video Library
-              </a>
+              <%= link_to 'Video Library', video_lessons_path %>
             </h1>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -44,23 +42,28 @@
             <li class="divider"></li>
             <li><%= link_to 'Add a Video', new_video_lesson_path %></li>
             <li class="divider"></li>
+           
+
+              <% if user_signed_in? %>
+                
+                <li class='login'><%= link_to current_user.email, edit_user_registration_path %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                </li>
+                
+              <% else %>
+                <li>
+                <%= link_to 'Sign_up', new_user_registration_path %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                <%= link_to 'Login', new_user_session_path %>
+              <% end %>
+              
+           
             <li class="divider"></li>
-            <li class="has-dropdown">
-              <a class="active" href="#">Main Item 1</a>
-              <ul class="dropdown">
-                <li><label>Section Name</label></li>
-                <li><a href="#" class="">Dropdown Level 1</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li class="divider"></li>
-                <li><label>Section Name</label></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li class="divider"></li>
-                <li><a href="#">See all →</a></li>
-              </ul>
-            </li>
             
             <li class="has-dropdown">
               <a href="#">Main Item 3</a>
@@ -111,19 +114,7 @@
                 <li><a href="#">See all →</a></li>
               </ul>
             </li>
-            <li class="divider"></li>
-            <li><a href="#">Main Item 5</a></li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Main Item 6</a>
-              <ul class="dropdown">
-                <li><a href="#">Dropdown Option</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li><a href="#">Dropdown Option</a></li>
-                <li class="divider"></li>
-                <li><a href="#">See all →</a></li>
-              </ul>
-            </li>
+            
           </ul>
         </section>
       </nav>
