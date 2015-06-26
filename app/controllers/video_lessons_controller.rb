@@ -1,6 +1,6 @@
 class VideoLessonsController < ApplicationController
   before_action :set_video_lesson, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new, :edit, :create, :destroy]
   # GET /video_lessons
   # GET /video_lessons.json
   def index
@@ -14,6 +14,7 @@ class VideoLessonsController < ApplicationController
 
   # GET /video_lessons/new
   def new
+    user_signed_in?
     @video_lesson = VideoLesson.new
   end
 

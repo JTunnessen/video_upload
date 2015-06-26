@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :video_lessons
   root 'video_lessons#index'
   # The priority is based upon order of creation: first created -> highest priority.
