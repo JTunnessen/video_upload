@@ -3,7 +3,8 @@ class CreateVideoLessons < ActiveRecord::Migration
     create_table :video_lessons do |t|
       t.string :title
       t.text :description
-      t.attachment :video
+      t.string :youtube
+      t.string :tags
 
       t.timestamps null: false
     end
