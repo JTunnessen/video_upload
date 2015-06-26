@@ -4,7 +4,7 @@ class VideoLessonsController < ApplicationController
   # GET /video_lessons
   # GET /video_lessons.json
   def index
-    @video_lessons = VideoLesson.all
+    @video_lessons = VideoLesson.order("video_lessons.created_at DESC").all
   end
 
   # GET /video_lessons/1
