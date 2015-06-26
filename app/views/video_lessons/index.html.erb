@@ -3,9 +3,9 @@
 
     <% @video_lessons.each do |video_lesson| %>
     
+        <div><small>uploaded <%= time_ago_in_words(video_lesson.created_at) %> ago</small></div>
         <h3><%= video_lesson.title %></h3>
-        <p>uploaded <%= time_ago_in_words(video_lesson.created_at) %> ago</p>
-        <p><div class="tags">tags: <%= video_lesson.tags %></div></p>
+        <div class="tags">tags: <%= video_lesson.tags %></div>
         <p><div class="embed-container">
         <%= embed(video_lesson.youtube) %>
         </div></p>
