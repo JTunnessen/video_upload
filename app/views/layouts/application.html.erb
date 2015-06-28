@@ -42,7 +42,6 @@
             <li class="divider"></li>
             <li><%= link_to 'Add a Video', new_video_lesson_path %></li>
             <li class="divider"></li>
-           
 
               <% if user_signed_in? %>
                 
@@ -118,9 +117,10 @@
           </ul>
         </section>
       </nav>
-     
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+
 <%= yield %>
 
 </body>

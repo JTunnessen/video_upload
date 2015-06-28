@@ -14,7 +14,6 @@ class VideoLessonsController < ApplicationController
 
   # GET /video_lessons/new
   def new
-    user_signed_in?
     @video_lesson = VideoLesson.new
   end
 
@@ -70,6 +69,6 @@ class VideoLessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_lesson_params
-      params.require(:video_lesson).permit(:title, :description, :youtube, :tags)
+      params.require(:video_lesson).permit(:title, :description, :youtube, :tags, :permalink, :email)
     end
 end
